@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-10-26T19:12:49 PDT" name="Demo Login App Suite" finished-at="2022-10-26T19:12:55 PDT" duration-ms="5709">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2022-10-26T19:12:49 PDT" name="Regression Tests" finished-at="2022-10-26T19:12:55 PDT" duration-ms="5709">
+      <class name="com.revature.bugcatcher.DefectRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:50 PDT" name="setUpClass" finished-at="2022-10-26T19:12:50 PDT" duration-ms="157" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@6a32191e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:50 PDT" name="setUp" finished-at="2022-10-26T19:12:51 PDT" duration-ms="1670" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:51 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-26T19:12:51 PDT" duration-ms="62" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Assign Defect"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Assign Defect"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:51 PDT" name="cleanUp" finished-at="2022-10-26T19:12:52 PDT" duration-ms="116" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:52 PDT" name="setUp" finished-at="2022-10-26T19:12:52 PDT" duration-ms="660" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:52 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-26T19:12:52 PDT" duration-ms="5" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Change Status"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Defect Status"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:52 PDT" name="cleanUp" finished-at="2022-10-26T19:12:52 PDT" duration-ms="129" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:52 PDT" name="setUp" finished-at="2022-10-26T19:12:53 PDT" duration-ms="605" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:53 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-26T19:12:53 PDT" duration-ms="12" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Steps too short"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Defect Reporting"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:53 PDT" name="cleanUp" finished-at="2022-10-26T19:12:53 PDT" duration-ms="116" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:53 PDT" name="setUp" finished-at="2022-10-26T19:12:54 PDT" duration-ms="601" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:54 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-26T19:12:54 PDT" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Description too short"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Defect Reporting"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:54 PDT" name="cleanUp" finished-at="2022-10-26T19:12:54 PDT" duration-ms="91" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:54 PDT" name="setUp" finished-at="2022-10-26T19:12:54 PDT" duration-ms="603" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:54 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-26T19:12:54 PDT" duration-ms="5" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["No Date Selected"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Defect Reporting"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:54 PDT" name="cleanUp" finished-at="2022-10-26T19:12:54 PDT" duration-ms="89" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:54 PDT" name="setUp" finished-at="2022-10-26T19:12:55 PDT" duration-ms="618" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:55 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-26T19:12:55 PDT" duration-ms="9" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Report New Defect"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Defect Reporting"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:55 PDT" name="cleanUp" finished-at="2022-10-26T19:12:55 PDT" duration-ms="118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.revature.bugcatcher.DefectRunner@4550bb58]" started-at="2022-10-26T19:12:55 PDT" name="tearDownClass" finished-at="2022-10-26T19:12:55 PDT" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.revature.bugcatcher.DefectRunner -->
+    </test> <!-- Regression Tests -->
+  </suite> <!-- Demo Login App Suite -->
+</testng-results>
