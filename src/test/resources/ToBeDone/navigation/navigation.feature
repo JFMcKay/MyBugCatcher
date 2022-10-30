@@ -1,13 +1,18 @@
 Feature: Navigation
 
-    Background: Logged in as a Manager
-        Given The manager is logged in as a manager 
-        Given The manager is on the home page
+    Background: Manager is logged in
+        Given The employee is on the login page
+        When  The employee types <username> into username input 
+        When The employee types <password> into password input
+        When The employee clicks on the login button
+        Then the employee should be on the <role> page
     
     Scenario: Home Page Links Visible
-        Then The manager should see links for Matrices, Test Cases, Defect Reporting and Defect Overview 
+        Given The manager is on the the <role> page
+        Then The manager should see links <link> on the page 
 
     Scenario: Back Navigation
+        Given The manager is on the the <role> page
         When The manager clicks on Matrices 
         Then The title of the page should be Matrix Page 
         When The manager clicks the browser back button 
@@ -17,7 +22,7 @@ Feature: Navigation
         Then The manager should be on the home page and the title of page is Home 
     
     Scenario Outline: All Links Viable 
-        Then The manager should see links for Matrices, Test Cases, Defect Reporting and Defect Overview 
+        Given The manager is on the the <role> page
         When The manager clicks on <link>
         Then The title of page should be <title>
     
@@ -27,6 +32,3 @@ Feature: Navigation
         | Test Cases     | Test Case Overivew  | 
         | Report a Defect| Defect Reporter     |
         | Defect Overview| Defect Overview     |
-
-
-

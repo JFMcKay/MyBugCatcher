@@ -27,8 +27,6 @@ public class LoginPage {
     @FindBy(xpath="//button[contains(text(),'Login')]")
     public WebElement loginButton;
 
-    @FindBy(xpath="//h1[contains(text(),'Manager Home')]")
-    public WebElement managerH1;
     public LoginPage(WebDriver driver) {
         // Pagefactory is a feature of Selenium that reduces the need to use findElement by introducing the
         // @FindBy annotation

@@ -1,5 +1,9 @@
 Feature: Defect Reporting
 
+   Background: Manager is logged in
+        Given The manager is logged in 
+        Given The manager is on the home page
+
     Scenario: Steps too short
         Given The employee is on the Defect Reporter Page 
         When The employee selects todays date 

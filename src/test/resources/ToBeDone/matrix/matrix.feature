@@ -1,19 +1,16 @@
-`Feature: Matrix
+Feature: Matrix
 
 # Declarative Style
     Background: Manager is logged in
-        Given The employee is on the login page
-        When  The employee types <username> into username input 
-        When The employee types <password> into password input
-        When The employee clicks on the login button
-        Then the employee should be on the <role> page
+        Given The Manager is logged in
+        Given The Manager is on the home page
 
 
     Scenario: Create a New Matrix
         Given A manager is on their home page
         Then A manager can pull up a form to make a new matrix 
         When A manager creates a title for a matrix 
-        When A manager adds requirements to a matrix
+        And A manager adds requirements to a matrix
         When A manager saves a matrix 
         Then The matrix should be visible for all testers and managers
 

@@ -1,131 +1,77 @@
 package com.revature.stepimplementations;
 
-import com.revature.bugcatcher.LoginRunner;
+import com.revature.bugcatcher.Runner;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 
 public class LoginSteps extends AbstractTestNGCucumberTests {
+    public LoginSteps() {
+    }
+
     @Given("The employee is on the login page")
-    public void the_employee_is_on_the_login_page() {
+    public void the_employee_is_on_the_login_page() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        LoginRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=10");
+        Runner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=10");
     }
-    @When("The employee types g8tor into username input")
-    public void the_employee_types_g8tor_into_username_input() {
+    @When("The employee types {string} into username input")
+    public void the_employee_types_into_username_input(String username) {
         // Write code here that turns the phrase above into concrete actions
-        LoginRunner.loginPage.usernameInput.sendKeys("g8tor");
-
+        Runner.loginPage.usernameInput.sendKeys(username.trim());
     }
-    @When("The employee types chomp! into password input")
-    public void the_employee_types_chomp_into_password_input() {
+    @When("The employee types {string} into password input")
+    public void the_employee_types_into_password_input(String password) {
         // Write code here that turns the phrase above into concrete actions
-        LoginRunner.loginPage.passwordInput.sendKeys("chomp!");
-
+        Runner.loginPage.passwordInput.sendKeys(password.trim());
     }
     @When("The employee clicks on the login button")
-    public void the_employee_clicks_on_the_login_button() {
+    public void the_employee_clicks_on_the_login_button() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-        LoginRunner.loginPage.loginButton.click();
-    }
-    @Then("the employee should be on the Manager page")
-    public void the_employee_should_be_on_the_manager_page() {
-        // Write code here that turns the phrase above into concrete actions
+        Runner.loginPage.loginButton.click();
 
     }
-    @Then("The employee should see their name Patty Pastiche on the home page")
-    public void the_employee_should_see_their_name_patty_pastiche_on_the_home_page() {
-        // Write code here that turns the phrase above into concrete actions
-    }
-    @When("The employee types in g8tor into the username input")
-    public void the_employee_types_in_g8tor_into_the_username_input() {
+    @Then("the employee should be on the {string} page")
+    public void the_employee_should_be_on_the_page(String expectedRole) {
         // Write code here that turns the phrase above into concrete actions
 
-    }
-    @When("The employee types in chomp! into the password input")
-    public void the_employee_types_in_chomp_into_the_password_input() {
-        // Write code here that turns the phrase above into concrete actions
+        // Add the waiting for h1 with Role
+        WebElement weActualRole = Runner.wait2Driver
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//h1[contains(text(),\"" + expectedRole + "\")])")));
+
+        String actualRole = weActualRole.getText();
+        // Test to see if the actual role matches the expected role
+        Assert.assertTrue(actualRole.contains(expectedRole));
 
     }
-    @Then("The employee should see an alert saying they have the wrong password")
-    public void the_employee_should_see_an_alert_saying_they_have_the_wrong_password() {
+    @Then("The employee should see their name {string} {string} on the home page")
+    public void the_employee_should_see_their_name_on_the_home_page(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
-    }
-    @When("The employee types ryeGuy into username input")
-    public void the_employee_types_rye_guy_into_username_input() {
-        // Write code here that turns the phrase above into concrete actions
+        WebElement weActualName = Runner.wait2Driver.until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("//p[1]")));
+        String expectedName = string + " " + string2;
+        String actualName = weActualName.getText();
 
-    }
-    @When("The employee types coolbeans into password input")
-    public void the_employee_types_coolbeans_into_password_input() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @Then("the employee should be on the Tester page")
-    public void the_employee_should_be_on_the_tester_page() {
-        // Write code here that turns the phrase above into concrete actions
-
+        Assert.assertTrue(actualName.contains(expectedName));
     }
 
-    @Then("The employee should see their name Fakey McFakeFace on the home page")
-    public void the_employee_should_see_their_name_fakey_mc_fake_face_on_the_home_page() {
+    @Then("The employee should see an alert saying {string}")
+    public void the_employee_should_see_an_alert_saying(String expectedAlertTest) {
         // Write code here that turns the phrase above into concrete actions
-    }
-
-    @When("The employee types cavalier89 into username input")
-    public void the_employee_types_cavalier89_into_username_input() {
-        // Write code here that turns the phrase above into concrete actions
-    }
-
-    @When("The employee types alucard into password input")
-    public void the_employee_types_alucard_into_password_input() {
-        // Write code here that turns the phrase above into concrete actions
-    }
-
-    @Then("The employee should see their name Dracula Fangs on the home page")
-    public void the_employee_should_see_their_name_dracula_fangs_on_the_home_page() {
-        // Write code here that turns the phrase above into concrete actions
-    }
-    @When("The employee types in sicEmDawgs into the username input")
-    public void the_employee_types_in_sic_em_dawgs_into_the_username_input() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @When("The employee types in natchamps into the password input")
-    public void the_employee_types_in_natchamps_into_the_password_input() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @Then("The employee should see an alert saying no user with that username found")
-    public void the_employee_should_see_an_alert_saying_no_user_with_that_username_found() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @Then("There should be a confirmation box")
-    public void there_should_be_a_confirmation_box() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @When("The employee clicks Ok")
-    public void the_employee_clicks_ok() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @Then("A modal should appear with a Defect ID")
-    public void a_modal_should_appear_with_a_defect_id() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @When("The employee clicks close")
-    public void the_employee_clicks_close() {
-        // Write code here that turns the phrase above into concrete actions
-
-    }
-    @Then("The modal should disappear")
-    public void the_modal_should_disappear() {
-        // Write code here that turns the phrase above into concrete actions
-
+        if(Runner.wait2Driver.until(ExpectedConditions.alertIsPresent())==null){
+            System.out.println("alert was not present");
+        }
+        else
+        {
+            Alert actualAlertText = Runner.driver.switchTo().alert();
+            Assert.assertEquals(actualAlertText.getText(), expectedAlertTest);
+            actualAlertText.accept();
+        }
     }
 }
