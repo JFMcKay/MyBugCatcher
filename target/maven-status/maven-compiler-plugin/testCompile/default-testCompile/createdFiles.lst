@@ -1,6 +1,4 @@
-com\revature\bugcatcher\MatrixRunner.class
 com\revature\stepimplementations\DefectSteps.class
 com\revature\stepimplementations\LoginSteps.class
 com\revature\bugcatcher\Runner.class
-com\revature\stepimplementations\MatrixSteps.class
 com\revature\pages\LoginPage.class

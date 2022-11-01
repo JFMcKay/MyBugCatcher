@@ -9,48 +9,30 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Demo Login App Suite</th></tr>
-<tr><td><a href="#t0">Regression Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">179</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Regression Tests</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">5,921</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Demo Login App Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Regression Tests &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.revature.bugcatcher.Runner</td><td><a href="#m0">setUpClass</a></td><td rowspan="1">1666985664224</td><td rowspan="1">157</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Demo Login App Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Regression Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.revature.bugcatcher.Runner</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1667335022664</td><td rowspan="1">745</td></tr><tr><th colspan="4">Regression Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">com.revature.bugcatcher.Runner</td><td><a href="#m1">runScenario</a></td><td rowspan="2">1667335021078</td><td rowspan="2">829</td></tr><tr class="passedeven"><td><a href="#m2">runScenario</a></td></tr></tbody>
 </table>
-<h2>Regression Tests</h2><h3 id="m0">com.revature.bugcatcher.Runner#setUpClass</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>org.testng.TestRunner@6e2829c7</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">io.cucumber.core.gherkin.FeatureParserException: Failed to parse resource at: classpath:features/matrix/matrix.feature
-(1:1): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;`Feature: Matrix&apos;
-(4:5): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Background: Manager is logged in&apos;
-(5:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given The employee is on the login page&apos;
-(6:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When  The employee types &lt;username&gt; into username input&apos;
-(7:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When The employee types &lt;password&gt; into password input&apos;
-(8:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When The employee clicks on the login button&apos;
-(9:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Then the employee should be on the &lt;role&gt; page&apos;
-(12:5): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Scenario: Create a New Matrix&apos;
-(13:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Given A manager is on their home page&apos;
-(14:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;Then A manager can pull up a form to make a new matrix&apos;
-(15:9): expected: #EOF, #Language, #TagLine, #FeatureLine, #Comment, #Empty, got &apos;When A manager creates a title for a matrix&apos;
-	at io.cucumber.core.gherkin.messages.GherkinMessagesFeatureParser.parse(GherkinMessagesFeatureParser.java:43)
-	at io.cucumber.core.feature.FeatureParser.parseResource(FeatureParser.java:45)
-	at java.base/java.util.function.BiFunction.lambda$andThen$0(BiFunction.java:70)
-	at io.cucumber.core.resource.ResourceScanner.lambda$processResource$1(ResourceScanner.java:79)
-	at io.cucumber.core.resource.PathScanner$ResourceFileVisitor.visitFile(PathScanner.java:75)
-	at io.cucumber.core.resource.PathScanner$ResourceFileVisitor.visitFile(PathScanner.java:60)
-	at java.base/java.nio.file.Files.walkFileTree(Files.java:2810)
-	at io.cucumber.core.resource.PathScanner.findResourcesForPath(PathScanner.java:53)
-	at io.cucumber.core.resource.PathScanner.findResourcesForUri(PathScanner.java:31)
-	at io.cucumber.core.resource.ResourceScanner.findResourcesForUri(ResourceScanner.java:61)
-	at io.cucumber.core.resource.ResourceScanner.lambda$findResourcesForUris$3(ResourceScanner.java:104)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at io.cucumber.core.resource.ResourceScanner.findResourcesForUris(ResourceScanner.java:107)
-	at io.cucumber.core.resource.ResourceScanner.scanForClasspathResource(ResourceScanner.java:115)
-	at io.cucumber.core.resource.ResourceScanner.scanForResourcesUri(ResourceScanner.java:131)
-	at io.cucumber.core.runtime.FeaturePathFeatureSupplier.loadFeatures(FeaturePathFeatureSupplier.java:62)
-	at io.cucumber.core.runtime.FeaturePathFeatureSupplier.get(FeaturePathFeatureSupplier.java:45)
-	at io.cucumber.testng.TestNGCucumberRunner.&lt;init&gt;(TestNGCucumberRunner.java:122)
-	at io.cucumber.testng.AbstractTestNGCucumberTests.setUpClass(AbstractTestNGCucumberTests.java:27)
+<h2>Regression Tests</h2><h3 id="m0">com.revature.bugcatcher.Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Edit Existing Case&quot;</td><td>&quot;Test Cases&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">io.cucumber.testng.UndefinedStepException: The step &apos;The tester clicks on the edit button&apos; is undefined.
+You can implement this step using the snippet(s) below:
+
+@When(&quot;The tester clicks on the edit button&quot;)
+public void the_tester_clicks_on_the_edit_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:129)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:129)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.revature.bugcatcher.Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Add A Test Case&quot;</td><td>&quot;Test Cases&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.revature.bugcatcher.Runner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Reset Test Case&quot;</td><td>&quot;Test Cases&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -4,26 +4,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
 
 public class HomePage {
 
-    @FindBy(xpath = "(//tbody)[1]")
-    public WebElement firstTbody;
     @FindBy(xpath = "(//div[@class=\"Collapsible__contentInner\"])/button")
     public List<WebElement> buttonStatusList;
     @FindBy(xpath = "//button[contains(text(),'Assign')]")
     public WebElement assignButton;
-
+    @FindBy(xpath = "//a[contains(text(),'Report a Defect')]")
+    public WebElement reportLink;
     @FindBy(xpath="(//p/b)[last()]")
     public WebElement statusButton;
     @FindBy(xpath = "//button[contains(text(),'Change Status')]")
     public WebElement changeStatusButton;
-    @FindBy(xpath = "//button[contains(text()='Select')]")
+    @FindBy(xpath = "(//button[contains(text(),'Select')])[1]")
     public WebElement selectDefect;
+    @FindBy(xpath = "//b[contains(text(),'Pending')]")
+    public WebElement isPending;
+    @FindBy(xpath = "((//button[contains(text(),'Select')])[1])//ancestor::tr[1]/td[1]")
+    public WebElement getId;
+
     @FindBy(xpath = "//input[@list='employees']")
     public WebElement listTester;
 

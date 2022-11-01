@@ -1,3 +1,4 @@
+
 Feature: Defect Reporting
     # Added background for login
     Background: Tester is logged in
@@ -21,12 +22,11 @@ Feature: Defect Reporting
         And The tester selects high priority 
         And The tester selects low severity 
         And The tester clicks the report button 
-        Then There should be a confirmation box 
-        And The tester is at the confirmation box 
+        # removed some of the steps because they were super redundant about the screens
+        Then The tester is at the confirmation box 
         And The tester clicks Ok 
         And A modal should appear with a Defect ID
-
-        And The tester is at the modal 
+        # removed some of the steps because they were super redundant about the screens
         And The tester clicks close
         And The modal should disappear
          

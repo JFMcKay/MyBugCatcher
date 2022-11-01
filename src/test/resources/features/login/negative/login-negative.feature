@@ -14,7 +14,7 @@ Feature: Login
         And The employee types "natchamps" into password input
         And The employee clicks on the login button 
         Then The employee should see an alert saying "no user with that username found"
-    # Test TC-4
+    # Test TC-4 JM created
     Scenario: Login Blank Username and Blank Password
         Given The employee is on the login page
         When The employee types ' ' into username input
@@ -22,7 +22,7 @@ Feature: Login
         And The employee clicks on the login button 
         Then The employee should see an alert saying "Username not found"
 
-    # Test TC-5
+    # Test TC-5 JM created
     Scenario: Login Blank Username and Correct Password
         Given The employee is on the login page
         When The employee types ' ' into username input

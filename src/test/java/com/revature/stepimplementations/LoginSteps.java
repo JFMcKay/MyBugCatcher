@@ -37,7 +37,7 @@ public class LoginSteps extends AbstractTestNGCucumberTests {
         Runner.loginPage.loginButton.click();
 
     }
-    @Then("the employee should be on the {string} page")
+    @Then("the .* should be on the {string} page")
     public void the_employee_should_be_on_the_page(String expectedRole) {
         // Write code here that turns the phrase above into concrete actions
 

@@ -1,3 +1,4 @@
+@current
 Feature: Test Cases
 
     Background: Tester is logged in
@@ -53,7 +54,7 @@ Feature: Test Cases
     Scenario: Reset Test Case
         Given the tester is on the test case editor for a specific test case 
         Then The fields should be uneditable
-        When The Tester clicks on the edit button 
+        When The tester clicks on the edit button
         Then The test case fields should be editable
         When The tester types in a new description into the description text area
         When The tester types in a new steps into the steps text area
