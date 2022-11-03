@@ -1,3 +1,4 @@
+@defect
 Feature: Defect Reporting
 
    Background: Manager is logged in

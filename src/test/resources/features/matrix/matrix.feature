@@ -1,3 +1,4 @@
+@matrix
 Feature: Matrix
 
 # Declarative Style

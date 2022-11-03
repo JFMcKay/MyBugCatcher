@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 import java.text.DateFormat;
@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public class DefectSteps extends AbstractTestNGCucumberTests {
     // Variables to be used between steps
@@ -31,13 +30,16 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
 
     @Given("The manager is on the home page")
     public void the_manager_is_on_the_home_page() {
+        // Write code here that turns the phrase above into concrete actions
         Runner.wait2Driver.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//h1[contains(text(),\"Manager\")])")));
     }
 
     @Given("The tester is logged in")
     public void the_tester_is_logged_in() {
+        String userName = "cavalier89";
+        Runner.curUser = userName;
         Runner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=10");
-        Runner.loginPage.usernameInput.sendKeys("cavalier89");
+        Runner.loginPage.usernameInput.sendKeys(userName);
         Runner.loginPage.passwordInput.sendKeys("alucard");
         Runner.loginPage.loginButton.click();
     }
@@ -64,22 +66,22 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
 //        int randomIndex = 4;
         System.out.println(randomIndex);
         System.out.println(Runner.homePage.buttonStatusList.size());
+        System.out.println(Runner.homePage.buttonStatusList.get(randomIndex).getText());
         // Create element to store button
         WebElement toClickStatus;
-        // Test to see if equal if they are add 1 to index or minus 1
         if (Runner.passString.equals(Runner.homePage.buttonStatusList.get(randomIndex).getText())) {
-            System.out.println("They equal");
+
             System.out.println(randomIndex);
             toClickStatus = Runner.homePage.buttonStatusList.get(randomIndex == Runner.homePage.buttonStatusList.size() ?
                     randomIndex + 1 : randomIndex - 1);
+            System.out.println("They equal "+ Runner.passString + " " + toClickStatus.getText());
         } else {
-            System.out.println("They aren't equal");
             toClickStatus = Runner.homePage.buttonStatusList.get(randomIndex);
+            System.out.println("They arent equal "+ Runner.passString + " " + toClickStatus.getText());
         }
         System.out.println(toClickStatus.getText());
+        Runner.wait2Driver.until(ExpectedConditions.elementToBeClickable(Runner.homePage.changeStatusButton));
         toClickStatus.click();
-        Runner.wait2Driver.until(
-                ExpectedConditions.textToBePresentInElement(Runner.homePage.statusButton, toClickStatus.getText()));
     }
 
     @Then("The tester should see the defect has a different status")
@@ -87,7 +89,6 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
         System.out.println(Runner.passString);
         System.out.println(Runner.homePage.statusButton.getText());
         Assert.assertNotEquals(Runner.passString, Runner.homePage.statusButton.getText());
-        Runner.passString = null;
     }
 
     @Then("The manager should see pending defects")
@@ -109,7 +110,6 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
     @When("The manager selects an tester from the drop down")
     public void the_manager_selects_an_tester_from_the_drop_down() {
         Runner.homePage.listTester.sendKeys("ryeGuy");
-
     }
 
     @When("The manager clicks assign")
@@ -120,7 +120,6 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
     @Then("The defect should disappear from the list")
     public void the_defect_should_disappear_from_the_list() {
         Assert.assertNotSame(Runner.passString, Runner.homePage.getId.getText());
-        ;
     }
 
     @Then("The tester should see the pending defect")
@@ -150,7 +149,6 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
         } else {
             Runner.drPage.howTo.sendKeys(docString);
         }
-
     }
 
     @When("The tester selects high priority")
@@ -172,16 +170,10 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
         Runner.drPage.reportButton.click();
     }
 
-    @Then("There should be a confirmation box")
-    public void there_should_be_a_confirmation_box() {
-
-    }
 
     @Then("The tester is at the confirmation box")
     public void the_tester_is_at_the_confirmation_box() {
-        if (Runner.wait2Driver.until(ExpectedConditions.alertIsPresent()) == null) {
-            System.out.println("alert was not present");
-        }
+            Assert.assertNotNull(Runner.wait2Driver.until(ExpectedConditions.alertIsPresent()));
     }
 
     @Then("The tester clicks Ok")
@@ -252,9 +244,16 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
     @Then("No confirmation dialog appears")
     public void noConfirmationDialogAppears() {
         // This returns false if there is an alert box.
-        Assert.assertTrue(Runner.wait2Driver.until(ExpectedConditions.alertIsPresent()) == null);
+        boolean alertPresent;
+        try {
+            Runner.wait2Driver.until(ExpectedConditions.alertIsPresent());
+            System.out.println("alert is present");
+            alertPresent = true;
+        } catch(Exception e) {
+            alertPresent = false;
+        }
+        Assert.assertFalse(alertPresent);
     }
-
 
     @Then("The employee sees the {string} error message {string}")
     public void theEmployeeSeesTheErrorMessage(String where, String message) {
@@ -267,5 +266,17 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
             System.out.println(Runner.drPage.dateReported.getAttribute("validationMessage"));
             Assert.assertEquals(message, Runner.drPage.dateReported.getAttribute("validationMessage"));
         }
+    }
+
+    @Then("The tester can can see only defects assigned to them")
+    public void theTesterCanCanSeeOnlyDefectsAssignedToThem() throws InterruptedException {
+        for(WebElement firstElement: Runner.homePage.bId) {
+            firstElement.click();
+        }
+        Runner.wait2Driver.until(ExpectedConditions.visibilityOfAllElements(Runner.homePage.tester));
+        for(WebElement element: Runner.homePage.tester) {
+            System.out.println(element.getText());
+        }
+
     }
 }

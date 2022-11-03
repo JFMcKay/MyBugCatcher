@@ -1,11 +1,9 @@
+@navigation
 Feature: Navigation
 
     Background: Manager is logged in
-        Given The employee is on the login page
-        When  The employee types <username> into username input 
-        When The employee types <password> into password input
-        When The employee clicks on the login button
-        Then the employee should be on the <role> page
+        Given The manager is logged in
+        Given The manager is on the home page
     
     Scenario: Home Page Links Visible
         Given The manager is on the the <role> page

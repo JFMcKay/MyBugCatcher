@@ -1,3 +1,4 @@
+@login
 Feature: Login
     # Test TC-2
     Scenario: Login Correct Username Wrong Password

@@ -17,30 +17,23 @@ public class LoginSteps extends AbstractTestNGCucumberTests {
     }
 
     @Given("The employee is on the login page")
-    public void the_employee_is_on_the_login_page() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
+    public void the_employee_is_on_the_login_page() {
         Runner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=10");
     }
     @When("The employee types {string} into username input")
     public void the_employee_types_into_username_input(String username) {
-        // Write code here that turns the phrase above into concrete actions
         Runner.loginPage.usernameInput.sendKeys(username.trim());
     }
     @When("The employee types {string} into password input")
     public void the_employee_types_into_password_input(String password) {
-        // Write code here that turns the phrase above into concrete actions
         Runner.loginPage.passwordInput.sendKeys(password.trim());
     }
     @When("The employee clicks on the login button")
-    public void the_employee_clicks_on_the_login_button() throws InterruptedException {
-        // Write code here that turns the phrase above into concrete actions
+    public void the_employee_clicks_on_the_login_button() {
         Runner.loginPage.loginButton.click();
-
     }
-    @Then("the .* should be on the {string} page")
+    @Then("the employee should be on the {string} page")
     public void the_employee_should_be_on_the_page(String expectedRole) {
-        // Write code here that turns the phrase above into concrete actions
-
         // Add the waiting for h1 with Role
         WebElement weActualRole = Runner.wait2Driver
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//h1[contains(text(),\"" + expectedRole + "\")])")));
@@ -52,18 +45,14 @@ public class LoginSteps extends AbstractTestNGCucumberTests {
     }
     @Then("The employee should see their name {string} {string} on the home page")
     public void the_employee_should_see_their_name_on_the_home_page(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
         WebElement weActualName = Runner.wait2Driver.until(ExpectedConditions
                 .presenceOfElementLocated(By.xpath("//p[1]")));
         String expectedName = string + " " + string2;
-        String actualName = weActualName.getText();
-
-        Assert.assertTrue(actualName.contains(expectedName));
+        Assert.assertTrue(weActualName.getText().contains(expectedName));
     }
 
     @Then("The employee should see an alert saying {string}")
     public void the_employee_should_see_an_alert_saying(String expectedAlertTest) {
-        // Write code here that turns the phrase above into concrete actions
         if(Runner.wait2Driver.until(ExpectedConditions.alertIsPresent())==null){
             System.out.println("alert was not present");
         }

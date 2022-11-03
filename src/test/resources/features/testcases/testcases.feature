@@ -1,12 +1,9 @@
-@current
+@testcases
 Feature: Test Cases
 
     Background: Tester is logged in
-        Given The employee is on the login page
-        When  The employee types <username> into username input 
-        When The employee types <password> into password input
-        When The employee clicks on the login button
-        Then the employee should be on the <role> page
+        Given The tester is logged in
+        Given The tester is on the home page
 
     Scenario: Add A Test Case
         Given The tester is on the test case dashboard 
@@ -27,15 +24,15 @@ Feature: Test Cases
         When The tester presses on details
         Then A test case modal should appear showing the case ID
         Then The performed by field should say No One 
-        When The tester presses the close buttton
+        When The tester presses the close button
         Then The Modal Should be closed
     
     Scenario: Edit Existing Case 
         Given The tester is on the test case dashboard
-        When The tester clicks on details 
+        When The tester presses on details
         Then A test case modal should appear showing the case ID
-        When The Tester clicks on edit within the modal 
-        Then The Tester should be on the case editor for that case 
+        When The tester clicks on edit within the modal
+        Then The tester should be on the case editor for that case
         Then The fields should be uneditable
         When The tester clicks on the edit button
         Then The test case fields should be editable
@@ -52,7 +49,10 @@ Feature: Test Cases
         Then The fields should be uneditable
 
     Scenario: Reset Test Case
-        Given the tester is on the test case editor for a specific test case 
+        Given The tester is on the test case dashboard
+        When The tester presses on details
+        Then A test case modal should appear showing the case ID
+        When The tester clicks on edit within the modal
         Then The fields should be uneditable
         When The tester clicks on the edit button
         Then The test case fields should be editable

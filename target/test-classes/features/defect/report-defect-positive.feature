@@ -1,4 +1,4 @@
-
+@defect
 Feature: Defect Reporting
     # Added background for login
     Background: Tester is logged in

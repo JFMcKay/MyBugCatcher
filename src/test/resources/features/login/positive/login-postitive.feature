@@ -1,3 +1,4 @@
+@login
 Feature: Login
     # Test TC-1
     Scenario Outline: Login with correct credentials

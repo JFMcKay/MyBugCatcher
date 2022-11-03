@@ -9,8 +9,11 @@ import java.util.List;
 import java.util.Random;
 
 public class HomePage {
-
-    @FindBy(xpath = "(//div[@class=\"Collapsible__contentInner\"])/button")
+    @FindBy(xpath = "//a[contains(text(),'Matrices')]")
+    public  WebElement matricesLink;
+    @FindBy(xpath = "//a[contains(text(),'Test Cases')]")
+    public WebElement testcasesLink;
+    @FindBy(xpath = "(//li)[last()]//child::div[last()]/button")
     public List<WebElement> buttonStatusList;
     @FindBy(xpath = "//button[contains(text(),'Assign')]")
     public WebElement assignButton;
@@ -26,10 +29,12 @@ public class HomePage {
     public WebElement isPending;
     @FindBy(xpath = "((//button[contains(text(),'Select')])[1])//ancestor::tr[1]/td[1]")
     public WebElement getId;
-
+    @FindBy(xpath = "//p/b[1]")
+    public List<WebElement> bId;
+    @FindBy(xpath = "//p[5]")
+    public List<WebElement> tester;
     @FindBy(xpath = "//input[@list='employees']")
     public WebElement listTester;
-
     public static Random rand;
     public HomePage(WebDriver driver) {
         rand = new Random();
