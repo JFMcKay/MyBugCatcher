@@ -1,14 +1,14 @@
 package com.revature.stepimplementations;
 
 import com.revature.bugcatcher.Runner;
-import com.revature.pages.HomePage;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
+
 import org.testng.Assert;
 
 import java.text.DateFormat;
@@ -55,33 +55,18 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
         Runner.wait2Driver.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h3[contains(text(),'My Defects')]")));
         // Set passString to current status button
         Runner.passString = Runner.homePage.statusButton.getText();
+        System.out.println(Runner.passString);
         // Click status button
         Runner.homePage.statusButton.click();
         // Wait for drop down
-        Runner.wait2Driver.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(text(),'Change Status')]")));
+        Runner.wait2Driver.until(ExpectedConditions.visibilityOf(Runner.homePage.changeStatusButton));
         // Click status button
         Runner.homePage.changeStatusButton.click();
-        // Set random button click
-        int randomIndex = HomePage.rand.nextInt(Runner.homePage.buttonStatusList.size());
-//        int randomIndex = 4;
-        System.out.println(randomIndex);
-        System.out.println(Runner.homePage.buttonStatusList.size());
-        System.out.println(Runner.homePage.buttonStatusList.get(randomIndex).getText());
-        // Create element to store button
-        WebElement toClickStatus;
-        if (Runner.passString.equals(Runner.homePage.buttonStatusList.get(randomIndex).getText())) {
+        Runner.wait2Driver.until(ExpectedConditions.visibilityOf(Runner.homePage.fixedButton));
+        // button click
+        Runner.homePage.fixedButton.click();
 
-            System.out.println(randomIndex);
-            toClickStatus = Runner.homePage.buttonStatusList.get(randomIndex == Runner.homePage.buttonStatusList.size() ?
-                    randomIndex + 1 : randomIndex - 1);
-            System.out.println("They equal "+ Runner.passString + " " + toClickStatus.getText());
-        } else {
-            toClickStatus = Runner.homePage.buttonStatusList.get(randomIndex);
-            System.out.println("They arent equal "+ Runner.passString + " " + toClickStatus.getText());
-        }
-        System.out.println(toClickStatus.getText());
-        Runner.wait2Driver.until(ExpectedConditions.elementToBeClickable(Runner.homePage.changeStatusButton));
-        toClickStatus.click();
+
     }
 
     @Then("The tester should see the defect has a different status")
@@ -270,10 +255,10 @@ public class DefectSteps extends AbstractTestNGCucumberTests {
 
     @Then("The tester can can see only defects assigned to them")
     public void theTesterCanCanSeeOnlyDefectsAssignedToThem() throws InterruptedException {
+        Runner.wait2Driver.until(ExpectedConditions.visibilityOfAllElements(Runner.homePage.bId));
         for(WebElement firstElement: Runner.homePage.bId) {
             firstElement.click();
         }
-        Runner.wait2Driver.until(ExpectedConditions.visibilityOfAllElements(Runner.homePage.tester));
         for(WebElement element: Runner.homePage.tester) {
             System.out.println(element.getText());
         }

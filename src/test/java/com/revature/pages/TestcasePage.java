@@ -30,6 +30,7 @@ public class TestcasePage {
     public List<WebElement> testRows;
     @FindBy(xpath = "//body")
     public WebElement bodyTag;
+
     public TestcasePage(WebDriver driver) {
         // Pagefactory is a feature of Selenium that reduces the need to use findElement by introducing the
         // @FindBy annotation

@@ -1,6 +1,5 @@
 package com.revature.bugcatcher;
 
-
 import com.revature.pages.*;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -22,8 +21,7 @@ import java.util.List;
 
 
 @CucumberOptions(features = "classpath:features",
-                glue="com.revature.stepimplementations",
-                tags = "@testcases")
+                glue="com.revature.stepimplementations", tags = "@defect")
 public class Runner extends AbstractTestNGCucumberTests {
 //https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=10
     public static WebDriver driver;
@@ -32,7 +30,7 @@ public class Runner extends AbstractTestNGCucumberTests {
     public static TestcasePage tcPage;
     public static DefectReportPage drPage;
     public static CaseEditorPage cePage;
-    public static Wait wait;
+    public static MatrixPage matrixPage;
     public static WebDriverWait wait2Driver;
     // static variables used for passing
     public static String passString;
@@ -48,8 +46,8 @@ public class Runner extends AbstractTestNGCucumberTests {
         WebDriverManager.chromedriver().setup();
 
         driver = new ChromeDriver();
-        wait2Driver = new WebDriverWait(driver, Duration.ofSeconds(5));
-
+        wait2Driver = new WebDriverWait(driver, Duration.ofSeconds(10));
+        matrixPage = new MatrixPage(driver);
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         drPage = new DefectReportPage(driver);
