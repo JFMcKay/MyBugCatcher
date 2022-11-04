@@ -1,5 +1,6 @@
 package com.revature.bugcatcher;
 
+import com.beust.ah.A;
 import com.revature.pages.*;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -8,10 +9,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -21,7 +20,7 @@ import java.util.List;
 
 
 @CucumberOptions(features = "classpath:features",
-                glue="com.revature.stepimplementations", tags = "@defect")
+                glue="com.revature.stepimplementations")
 public class Runner extends AbstractTestNGCucumberTests {
 //https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=10
     public static WebDriver driver;
@@ -34,13 +33,12 @@ public class Runner extends AbstractTestNGCucumberTests {
     public static WebDriverWait wait2Driver;
     // static variables used for passing
     public static String passString;
-
     public static String curUser;
     public static int passInt;
     public static WebElement passElement;
     public static boolean passBool;
-
     public static List<WebElement> passList;
+    public static Actions action;
     @BeforeMethod // Runs before each scenario
     public void setUp() {
         WebDriverManager.chromedriver().setup();
@@ -54,6 +52,7 @@ public class Runner extends AbstractTestNGCucumberTests {
         tcPage = new TestcasePage(driver);
         cePage = new CaseEditorPage(driver);
         passList = new ArrayList<>();
+        action = new Actions(driver);
         curUser = "cavalier89";
         passInt = 0;
         passBool = true;

@@ -111,7 +111,7 @@ public class TestcasesSteps extends AbstractTestNGCucumberTests {
 
     @When("The tester types in a new steps into the steps text area")
     public void theTesterTypesInANewStepsIntoTheStepsTextArea() {
-        Runner.cePage.description.sendKeys("1. Type stuff\n2. Type more stuff\n3. Hopefully it's not broken");
+        Runner.cePage.steps.sendKeys("1. Type stuff\n2. Type more stuff\n3. Hopefully it's not broken");
     }
 
     @When("The tester clicks on the automated check mark")
@@ -181,7 +181,7 @@ public class TestcasesSteps extends AbstractTestNGCucumberTests {
 
     @When("The tester presses the close button")
     public void theTesterPressesTheCloseButton() {
-        // Shouldn't be defined as assertion
+
         Runner.tcPage.closeButton.click();
     }
 }

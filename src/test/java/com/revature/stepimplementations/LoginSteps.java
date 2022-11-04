@@ -39,7 +39,6 @@ public class LoginSteps extends AbstractTestNGCucumberTests {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//h1[contains(text(),\"" + expectedRole + "\")])")));
 
         String actualRole = weActualRole.getText();
-        // Test to see if the actual role matches the expected role
         Assert.assertTrue(actualRole.contains(expectedRole));
 
     }

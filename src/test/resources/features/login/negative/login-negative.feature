@@ -6,7 +6,7 @@ Feature: Login
         When The employee types "g8tor" into username input
         And The employee types "champ!" into password input
         And The employee clicks on the login button 
-        Then The employee should see an alert saying "they have the wrong password"
+        Then The employee should see an alert saying "Wrong password for User"
 
     # Test TC-3
     Scenario: Login Wrong Username 
@@ -14,7 +14,7 @@ Feature: Login
         When The employee types "sicEmDawgs" into username input
         And The employee types "natchamps" into password input
         And The employee clicks on the login button 
-        Then The employee should see an alert saying "no user with that username found"
+        Then The employee should see an alert saying "Username not found"
     # Test TC-4 JM created
     Scenario: Login Blank Username and Blank Password
         Given The employee is on the login page
@@ -36,7 +36,7 @@ Feature: Login
         Given The employee is on the login page
         When The employee types "g8tor" into username input
         And The employee types ' ' into password input
-        And The employee clicks on the login button 
-        Then The employee should see an alert saying "they have the wrong password"
+        And The employee clicks on the login button
+        Then The employee should see an alert saying "Wrong password for User"
     
         

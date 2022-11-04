@@ -43,8 +43,11 @@ public class NavigationSteps {
 
     @Then("The manager should see {string} on the page")
     public void theManagerShouldSeeLinksOnThePage(String link) {
+        Runner.action.pause(2000);
         for(WebElement e: Runner.homePage.allLinks) {
-            Assert.assertTrue(e.getText().contains(link), "Testing if the text and link text matches" + e.getText() + " " + link);
+            if ( e.getText().contains(link)) {
+                Assert.assertTrue(e.getText().contains(link));
+            }
         }
     }
 
@@ -70,7 +73,7 @@ public class NavigationSteps {
     public void theTitleOfPageShouldBe(String link
     ) {
         Runner.wait2Driver.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//body")));
-        Assert.assertTrue(Runner.driver.getTitle().contains(link), "Testing if the text and link text matches" + Runner.driver.getTitle() + " " + link);
+        Assert.assertTrue(Runner.driver.getTitle().contains(link), "Testing if the text and link text matches = " + Runner.driver.getTitle() + " " + link);
 
     }
 }
